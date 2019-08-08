@@ -1,0 +1,11 @@
+<h1> <%= @gossip.title %> </h1>
+
+<p> Auteur: <%= link_to "#{@gossip.user.first_name} #{@gossip.user.last_name}", user_path(@gossip.user.id) %> <br />
+Venant de <%= link_to "#{@gossip.user.city.name}", city_path(@gossip.user.city.id) %></p>
+
+
+<p> <%= @gossip.content %> </p>
+
+<p>Le gossip vous semble incorrect? Modifier le <%= link_to "Ici", edit_gossip_path(@gossip.id) %> ! </p>
+
+<%= link_to "Supprimer le gossip", @gossip,  method: :delete, data: { confirm: 'Are you sure?' } %>

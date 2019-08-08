@@ -1,0 +1,9 @@
+<h1> <%= @city.name %> </h1>
+<br />
+<p>Gossips liés à la ville:</p>
+
+<p><% @gossips.select{ |gossip_same_city|  (gossip_same_city.user.city_id == @city.id)  }.each do |gossip| %>
+	De: <%= link_to "#{gossip.user.first_name}", user_path(gossip.user.id) %> <br />
+	Titre: <%= link_to "#{gossip.title}", gossip_path(gossip.id) %> <br /> <br />
+	<% end %>
+</p>
